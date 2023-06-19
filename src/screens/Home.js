@@ -4,9 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import HeaderTabs from "../../components/HeaderTabs";
 import SearchBar from "../../components/SearchBar";
 import Categories from "../../components/Categories";
-import RestaurantItem from "../../components/RestaurantItem";
+import RestaurantItems, {
+  localRestaurants,
+} from "../../components/RestaurantItems";
 
 export default function Home() {
+  const [restaurantData, setRestaurantData] = React.useState(localRestaurants);
   return (
     <SafeAreaView style={{ backgroundColor: "lightgrey", flex: 1 }}>
       <View style={{ backgroundColor: "white", padding: 15 }}>
@@ -15,7 +18,7 @@ export default function Home() {
       </View>
       <Categories />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <RestaurantItem />
+        <RestaurantItems restaurantData={restaurantData} />
       </ScrollView>
     </SafeAreaView>
   );
