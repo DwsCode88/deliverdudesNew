@@ -1,12 +1,14 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HeaderTabs from "../../components/HeaderTabs";
-import SearchBar from "../../components/SearchBar";
-import Categories from "../../components/Categories";
+import HeaderTabs from "../../components/home/HeaderTabs";
+import SearchBar from "../../components/home/SearchBar";
+import Categories from "../../components/home/Categories";
 import RestaurantItems, {
   localRestaurants,
-} from "../../components/RestaurantItems";
+} from "../../components/home/RestaurantItems";
+import BottomTabs from "../../components/home/BottomTabs";
+import { Divider } from "react-native-elements/dist/divider/Divider";
 
 export default function Home() {
   const [restaurantData, setRestaurantData] = React.useState(localRestaurants);
@@ -20,6 +22,8 @@ export default function Home() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <RestaurantItems restaurantData={restaurantData} />
       </ScrollView>
+      <Divider width={1} />
+      <BottomTabs />
     </SafeAreaView>
   );
 }
