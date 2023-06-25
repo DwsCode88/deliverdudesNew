@@ -47,17 +47,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     margin: 20,
   },
+
   titleStyle: {
     fontSize: 19,
     fontWeight: "600",
-  },
-  descriptionStyle: {
-    fontSize: 16,
-    color: "#888",
-  },
-  priceStyle: {
-    fontSize: 16,
-    color: "#888",
   },
 });
 
@@ -79,8 +72,8 @@ export default function MenuItems() {
 const FoodInfo = (props) => (
   <View style={{ width: 240, justifyContent: "space-evenly" }}>
     <Text style={styles.titleStyle}>{props.foods.title}</Text>
-    <Text style={styles.descriptionStyle}>{props.foods.description}</Text>
-    <Text style={styles.priceStyle}>{props.foods.price}</Text>
+    <Text>{props.foods.description}</Text>
+    <Text>{props.foods.price}</Text>
   </View>
 );
 
@@ -88,7 +81,11 @@ const FoodImage = (props) => (
   <View>
     <Image
       source={{ uri: props.foods.image }}
-      style={{ width: 100, height: 100 }}
+      style={{
+        width: 100,
+        height: 100,
+        borderRadius: 8,
+      }}
     />
   </View>
 );
